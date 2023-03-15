@@ -1,6 +1,14 @@
 import { menuArray } from "./data.js"
 
-console.log("hello")
+// documen.addEventListener('click', function(e){
+//   if (e.target.dataSet.addBtn) {
+//     handleClickAddBtn(e.target.dataSet.addBtn)
+//   }
+// })
+
+// function handleClickAddBtn(itemId) {
+//   document.getElementById(itemId).classList.toggle('hidden')
+// }
 
 function getFeedHtml() {
   let menuHtml = ``
@@ -17,7 +25,7 @@ function getFeedHtml() {
           <h3>$${item.price}</h3>
         </div>
       </div>
-      <i>+</i>
+      <i data-add-btn="${item.id}">+</i>
     </div>
     <span class="spacer">_________________________________________________________________________</span>
     `
