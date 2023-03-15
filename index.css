@@ -13,7 +13,7 @@ body {
 
 header img{
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 /* info  */
@@ -28,7 +28,7 @@ header img{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin: 20px 0;
 }
 
 .menu-item-full-info {
@@ -67,5 +67,9 @@ h3 {
 }
 
 p {
+  color: #8B8B8B;
+}
+
+.spacer {
   color: #8B8B8B;
 }
