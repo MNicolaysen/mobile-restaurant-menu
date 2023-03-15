@@ -43,7 +43,7 @@ header img{
 
 /* button  */
 
-i {
+.add-btn {
   font-family: 'Times New Roman', Times, serif;
   font-size: 20px;
   border: solid 1px #8B8B8B;
@@ -72,4 +72,46 @@ p {
 
 .spacer {
   color: #8B8B8B;
+}
+
+/* order summary */
+
+.hidden {
+  display: none;
+}
+
+h3 {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 15px;
+}
+
+.order-item, .order-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.order-item-display {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.order-item-display h2 {
+  margin-right: 15px;
+}
+
+.order-item-display i {
+  font-family: Arial;
+  color: #8B8B8B;
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+.complete-order-btn {
+  width: 100%;
+  padding: 15px 0px;
+  margin-top: 20px;
+  background-color: orange;
+  border-style: none;
 }
