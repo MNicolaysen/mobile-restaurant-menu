@@ -92,13 +92,9 @@ h3 {
   margin-top: 10px;
 }
 
-.order-item-display {
-  display: flex;
-  justify-content: space-evenly;
-}
-
 .order-item-display h2 {
-  margin-right: 15px;
+  margin-right: 1em;
+  margin-top: 0.2em;
 }
 
 .order-item-display i {
@@ -108,10 +104,19 @@ h3 {
   margin-top: 10px;
 }
 
+.order-item-display i:hover {
+  color: red;
+  cursor: pointer;
+}
+
 .complete-order-btn {
   width: 100%;
   padding: 15px 0px;
   margin-top: 20px;
   background-color: orange;
   border-style: none;
+}
+
+.order-item-price h2:not(:first-child) {
+  margin-top: 1.1em;
 }

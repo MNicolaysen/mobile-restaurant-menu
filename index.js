@@ -1,18 +1,25 @@
 import { menuArray } from "./data.js"
+const itemArray = []
+const orderItem = document.getElementById('order-item')
+const orderItemPrice = document.getElementById('order-item-price')
+const orderItemTotal = document.getElementById('order-total')
 
 document.addEventListener('click', function(e){
   if (e.target.dataset.add) {
     handleClickAddBtn(e.target.dataset.add)
-    getSummaryHtml(e.target.dataset.add)
+    getSummaryHtml()
+  } else if (e.target.dataset.remove) {
+    removeItem()
   }
 })
 
 function handleClickAddBtn(itemId) {
-  document.getElementById(`order-${itemId}`).style.display = 'block'
+  document.getElementById('feed-two').style.display = "block"
+
+  itemArray.push(menuArray[itemId])
 }
 
 function getMenuHtml() {
-
   let menuHtml = ``
 
   menuArray.forEach(function(item){
@@ -36,45 +43,41 @@ function getMenuHtml() {
 }
 
 function getSummaryHtml() {
-  let summaryHtml = ``
+  let orderName = ``
+  let orderPrice = ``
+  let orderTotal = ``
 
-  menuArray.forEach(function(item){
-      summaryHtml = `
-        <section id="order-${item.id}" class="hidden">
+  itemArray.forEach(function(item){
+    orderName += `
+    <h2>${item.name}</h2>
+    <i class="remove-btn" data-remove="${item.id}">Remove</i>
+    `
 
-        <h3>Your Order</h3>
-        <div class="order-item">
-          <div id="order-item" class="order-item-display">
-            <h2>${item.name}</h2>
-            <i class="remove-btn">Remove</i>
-          </div>
-          <div id="order-item-price">
-            <h2>$${item.price}</h2>
-          </div>
-        </div>
+    orderPrice += `
+    <h2>$${item.price}</h2>
+    `
 
-        <span>__________________________________________________________________________</span>
-
-        <div class="order-total">
-          <h2>Total</h2>
-          <h2>$${item.price}</h2>
-        </div>
-
-        <button class="complete-order-btn">Complete Order</button>
-
-      </section>
-      `
+    orderTotal = `
+    <h2>$${item.price}</h2>
+    `
   })
 
+  orderItem.innerHTML = orderName
+  orderItemPrice.innerHTML = orderPrice
+  orderItemTotal.innerHTML = orderTotal
+  let summaryHtml = orderItem + orderItemPrice + orderItemTotal
+
   return summaryHtml
+}
+
+function removeItem() {
+  itemArray.pop()
+  render()
 }
 
 function render() {
   document.getElementById('feed-one').innerHTML = getMenuHtml()
   document.getElementById('feed-two').innerHTML = getSummaryHtml()
 }
-
-
-console.log(getSummaryHtml())
 
 render()
