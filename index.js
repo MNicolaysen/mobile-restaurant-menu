@@ -10,6 +10,11 @@ document.addEventListener('click', function(e){
     getSummaryHtml()
   } else if (e.target.dataset.remove) {
     removeItem()
+  } else if (e.target.id) {
+    completeOrder()
+  } else if (e.target.id) {
+    console.log(e.target.id)
+    pay()
   }
 })
 
@@ -73,6 +78,14 @@ function getSummaryHtml() {
 function removeItem() {
   itemArray.pop()
   render()
+}
+
+function completeOrder() {
+  document.getElementById('modal').style.display = 'flex'
+}
+
+function pay() {
+  console.log("pay")
 }
 
 function render() {

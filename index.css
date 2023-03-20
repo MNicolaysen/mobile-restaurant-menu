@@ -109,14 +109,56 @@ h3 {
   cursor: pointer;
 }
 
-.complete-order-btn {
+.btn {
   width: 100%;
   padding: 15px 0px;
   margin-top: 20px;
   background-color: orange;
   border-style: none;
+  cursor: pointer;
 }
 
 .order-item-price h2:not(:first-child) {
   margin-top: 1.1em;
+}
+
+/* modal  */
+
+#modal {
+  display: none;
+}
+
+.modal {
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 420px;
+  width: 350px;
+  box-shadow: 0px 0px 6px 2px #666;
+  background-color: white;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal input {
+  text-align: center;
+  margin-bottom: 1em;
+  padding: 0.5em 0;
+  padding-bottom: 0.5em;
+  width: 80%;
+}
+
+.modal .btn {
+  width: 80%;
+  margin-left: 2.5em;
 }

@@ -22,12 +22,15 @@
       </header>
 
       <div class="container">
+        <!------------ Menu List -------------->
+
         <div id="feed-one">
           <!-- Menu items here -->
         </div>
 
+        <!----------- Summary  ----------->
+
         <div id="feed-two" class = "hidden">
-          <!-- Summary  -->
           <section id="summary">
 
             <h3>Your Order</h3>
@@ -48,12 +51,37 @@
                 <!-- total price -->
             </div>
 
-            <button class="complete-order-btn">Complete Order</button>
-
+            <button id="complete-order-btn" class="btn">Complete Order</button>
           </section>
+
+          <!------- Complete order  -------->
+          <div id="modal" class="modal">
+            <h1>Enter Card Details</h1>
+            <form id="complete-order-form">
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                required/>
+              <input
+                type="number"
+                name="card-number"
+                placeholder="Enter your card number"
+                required/>
+              <input
+                type="number"
+                name="ccv"
+                placeholder="CCV"
+                required>
+            </form>
+            <button id="pay-btn" class="btn">Pay</button>
+          </div>
         </div>
+      </div>
     </main>
+
     <script src="index.js" type="module"></script>
+
   </body>
 
 </html>
