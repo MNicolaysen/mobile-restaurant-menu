@@ -31,9 +31,10 @@
         <!----------- Summary  ----------->
 
         <div id="feed-two" class = "hidden">
-          <section id="summary">
+          <section id="summary" >
 
             <h3>Your Order</h3>
+
             <div class="order-item">
               <div id="order-item" class="order-item-display">
                 <!-- name -->
@@ -46,29 +47,34 @@
 
             <span>__________________________________________________________________________</span>
 
-            <div class="order-total">
-              <h2>Total</h2>
+            <div id="order-total" class="order-total">
                 <!-- total price -->
             </div>
 
             <button id="complete-order-btn" class="btn">Complete Order</button>
+
           </section>
+
+          <div id="test"></div>
 
           <!------- Complete order  -------->
           <div id="modal" class="modal">
             <h1>Enter Card Details</h1>
             <form id="complete-order-form">
               <input
+                id="name"
                 type="text"
                 name="name"
                 placeholder="Enter your name"
                 required/>
               <input
+                id="card-number"
                 type="number"
                 name="card-number"
                 placeholder="Enter your card number"
                 required/>
               <input
+                id="ccv"
                 type="number"
                 name="ccv"
                 placeholder="CCV"

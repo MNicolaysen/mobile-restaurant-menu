@@ -1,5 +1,6 @@
 import { menuArray } from "./data.js"
 const itemArray = []
+const details = []
 const orderItem = document.getElementById('order-item')
 const orderItemPrice = document.getElementById('order-item-price')
 const orderItemTotal = document.getElementById('order-total')
@@ -10,10 +11,11 @@ document.addEventListener('click', function(e){
     getSummaryHtml()
   } else if (e.target.dataset.remove) {
     removeItem()
-  } else if (e.target.id) {
+    getSummaryHtml()
+    render()
+  } else if (e.target.id === "complete-order-btn") {
     completeOrder()
-  } else if (e.target.id) {
-    console.log(e.target.id)
+  } else if (e.target.id === "pay-btn") {
     pay()
   }
 })
@@ -53,6 +55,7 @@ function getSummaryHtml() {
   let orderTotal = ``
 
   itemArray.forEach(function(item){
+    if (item.name)
     orderName += `
     <h2>${item.name}</h2>
     <i class="remove-btn" data-remove="${item.id}">Remove</i>
@@ -63,21 +66,22 @@ function getSummaryHtml() {
     `
 
     orderTotal = `
-    <h2>$${item.price}</h2>
+    <h2>Total</h2>
+    <h2>$${itemArray.length * item.price}</h2>
     `
   })
 
   orderItem.innerHTML = orderName
   orderItemPrice.innerHTML = orderPrice
   orderItemTotal.innerHTML = orderTotal
-  let summaryHtml = orderItem + orderItemPrice + orderItemTotal
+
+  const summaryHtml = orderItem + orderItemPrice + orderItemTotal
 
   return summaryHtml
 }
 
 function removeItem() {
   itemArray.pop()
-  render()
 }
 
 function completeOrder() {
@@ -85,12 +89,35 @@ function completeOrder() {
 }
 
 function pay() {
-  console.log("pay")
+  const name = document.getElementById('name').value
+  const cardNumber = document.getElementById('card-number').value
+  const ccv = document.getElementById('ccv').value
+  let detailsHtml = ``
+
+  details.push(
+    {
+      name: name,
+      cardNumber: cardNumber,
+      ccv: ccv,
+    })
+
+  details.forEach(function(d){
+    detailsHtml = `
+    <div class="submitted-payment">
+      <h2>Thanks, ${d.name}! Your order is on its way!</h2>
+    </div>
+    `
+  })
+
+  document.getElementById('feed-two').innerHTML = detailsHtml
+  document.getElementById('modal').style.display = 'hidden'
 }
 
 function render() {
   document.getElementById('feed-one').innerHTML = getMenuHtml()
-  document.getElementById('feed-two').innerHTML = getSummaryHtml()
+  // document.getElementById('test').innerHTML = getSummaryHtml()
 }
 
 render()
+
+console.log(itemArray)
