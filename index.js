@@ -23,7 +23,7 @@ document.addEventListener('click', function(e){
 function handleClickAddBtn(itemId) {
   document.getElementById('feed-two').style.display = "block"
 
-  itemArray.push(menuArray[itemId])
+    itemArray.push(menuArray[itemId])
 }
 
 function getMenuHtml() {
@@ -55,20 +55,19 @@ function getSummaryHtml() {
   let orderTotal = ``
 
   itemArray.forEach(function(item){
-    if (item.name)
-    orderName += `
-    <h2>${item.name}</h2>
-    <i class="remove-btn" data-remove="${item.id}">Remove</i>
-    `
+      orderName += `
+      <h2>${item.name}</h2>
+      <i class="remove-btn" data-remove="${item.id}">Remove</i>
+      `
 
-    orderPrice += `
-    <h2>$${item.price}</h2>
-    `
+      orderPrice += `
+      <h2>$${item.price}</h2>
+      `
 
-    orderTotal = `
-    <h2>Total</h2>
-    <h2>$${itemArray.length * item.price}</h2>
-    `
+      orderTotal = `
+      <h2>Total</h2>
+      <h2>$${itemArray.length * item.price}</h2>
+      `
   })
 
   orderItem.innerHTML = orderName
