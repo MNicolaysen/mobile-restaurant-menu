@@ -2,7 +2,8 @@
 
 body {
   font-family: 'Smythe', cursive;
-  margin: 0 auto;
+  margin: 20px 450px;
+  border: 1.5px black solid;
 }
 
 .container {
@@ -78,6 +79,17 @@ p {
 
 .hidden {
   display: none;
+}
+
+.close-btn {
+  text-align: center;
+  font-family: Arial, Helvetica;
+  color: red;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  cursor: pointer;
 }
 
 h3 {
