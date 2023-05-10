@@ -112,11 +112,12 @@ function pay() {
   document.getElementById('modal').style.display = 'hidden'
 }
 
+document.getElementById("close-btn").addEventListener("click", function() {
+  document.getElementById('modal').style.display = 'none'
+})
+
 function render() {
   document.getElementById('feed-one').innerHTML = getMenuHtml()
-  // document.getElementById('test').innerHTML = getSummaryHtml()
 }
 
 render()
-
-console.log(itemArray)
