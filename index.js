@@ -1,23 +1,26 @@
-import { menuArray } from "./data.js"
-const itemArray = []
-const details = []
+import { menuArray } from "./data.js";
+const itemArray = [];
+const details = [];
 let count = {};
-const orderItem = document.getElementById('order-item')
-const orderItemPrice = document.getElementById('order-item-price')
-const orderItemTotal = document.getElementById('order-total')
+const orderItem = document.getElementById('order-item');
+const orderItemPrice = document.getElementById('order-item-price');
+const orderItemTotal = document.getElementById('order-total');
+const form = document.getElementById('complete-order-form');
 
 document.addEventListener('click', function(e){
   if (e.target.dataset.add) {
     handleClickAddBtn(e.target.dataset.add)
-    getSummaryHtml()
+    getSummaryHtml();
   } else if (e.target.dataset.remove) {
-    removeItem()
-    getSummaryHtml()
-    render()
+    removeItem();
+    getSummaryHtml();
+    render();
   } else if (e.target.id === "complete-order-btn") {
-    completeOrder()
+    completeOrder();
   } else if (e.target.id === "pay-btn") {
-    pay()
+    if (form.checkValidity()) {
+      pay();
+    }
   }
 })
 
