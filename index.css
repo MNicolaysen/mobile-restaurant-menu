@@ -2,8 +2,7 @@
 
 body {
   font-family: 'Smythe', cursive;
-  margin: 20px 450px;
-  border: 1.5px black solid;
+  margin: 0;
 }
 
 .container {
@@ -14,7 +13,6 @@ body {
 
 header img{
   width: 100%;
-  margin-bottom: 10px;
 }
 
 /* info  */
@@ -71,8 +69,9 @@ p {
   color: #8B8B8B;
 }
 
-.spacer {
-  color: #8B8B8B;
+.summary-spacer {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 /* order summary */
@@ -125,6 +124,7 @@ h3 {
   width: 100%;
   padding: 15px 0px;
   margin-top: 20px;
+  font-size: 20px;
   background-color: orange;
   border-style: none;
   cursor: pointer;
@@ -183,4 +183,11 @@ h3 {
   background-color: #ECFDF5;
   color: #065F46;
   padding: 2em 0;
+}
+
+@media (min-width: 1000px) {
+  body {
+    margin: 20px 450px;
+    border: 1.5px black solid;
+  }
 }

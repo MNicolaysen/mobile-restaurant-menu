@@ -1,6 +1,7 @@
 import { menuArray } from "./data.js"
 const itemArray = []
 const details = []
+let count = {};
 const orderItem = document.getElementById('order-item')
 const orderItemPrice = document.getElementById('order-item-price')
 const orderItemTotal = document.getElementById('order-total')
@@ -20,10 +21,15 @@ document.addEventListener('click', function(e){
   }
 })
 
+
 function handleClickAddBtn(itemId) {
   document.getElementById('feed-two').style.display = "block"
 
-    itemArray.push(menuArray[itemId])
+  const item = menuArray[itemId];
+  itemArray.push(item);
+
+  count[item.id] = (count[item.id] || 0) + 1;
+  console.log(count)
 }
 
 function getMenuHtml() {
@@ -42,7 +48,7 @@ function getMenuHtml() {
       </div>
       <i class="add-btn" data-add="${item.id}">+</i>
     </div>
-    <span class="spacer">_________________________________________________________________________</span>
+    <hr>
       `
   })
 
@@ -53,22 +59,28 @@ function getSummaryHtml() {
   let orderName = ``
   let orderPrice = ``
   let orderTotal = ``
+  let itemCount = {};
 
   itemArray.forEach(function(item){
+    itemCount[item.id] = (itemCount[item.id] || 0) + 1;
+
+    if (itemCount[item.id] === 1) {
       orderName += `
-      <h2>${item.name}</h2>
-      <i class="remove-btn" data-remove="${item.id}">Remove</i>
-      `
-
+        <div class="order-item-display">
+          <h2>${item.name} - x${itemCount[item.id] * count[item.id]}</h2>
+          <i class="remove-btn" data-remove="${item.id}">Remove</i>
+        </div>
+      `;
       orderPrice += `
-      <h2>$${item.price}</h2>
-      `
+        <h2>$${item.price * count[item.id]}</h2>
+      `;
+    }
+  });
 
-      orderTotal = `
-      <h2>Total</h2>
-      <h2>$${itemArray.length * item.price}</h2>
-      `
-  })
+  orderTotal = `
+    <h2>Total</h2>
+    <h2>$${itemArray.reduce((total, item) => total + item.price, 0)}</h2>
+  `;
 
   orderItem.innerHTML = orderName
   orderItemPrice.innerHTML = orderPrice
@@ -80,7 +92,8 @@ function getSummaryHtml() {
 }
 
 function removeItem() {
-  itemArray.pop()
+  const removedItem = itemArray.pop();
+  count[removedItem.id] = (count[removedItem.id] || 0) - 1;
 }
 
 function completeOrder() {
@@ -115,6 +128,7 @@ function pay() {
 document.getElementById("close-btn").addEventListener("click", function() {
   document.getElementById('modal').style.display = 'none'
 })
+
 
 function render() {
   document.getElementById('feed-one').innerHTML = getMenuHtml()
