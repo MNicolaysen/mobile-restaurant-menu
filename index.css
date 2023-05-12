@@ -150,10 +150,18 @@ h3 {
   top: 0;
   bottom: 0;
   margin: auto;
-  height: 420px;
+  height: 350px;
   width: 350px;
   box-shadow: 0px 0px 6px 2px #666;
   background-color: white;
+}
+
+.modal h1 {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
 }
 
 .modal form {
