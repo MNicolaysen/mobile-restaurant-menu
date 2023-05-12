@@ -172,7 +172,12 @@ h3 {
 
 .modal .btn {
   width: 80%;
-  margin-left: 2.5em;
+  margin: 0;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 /* Completed order  */
